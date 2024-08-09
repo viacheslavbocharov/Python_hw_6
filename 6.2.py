@@ -11,15 +11,12 @@ if minutes < 10:
 if seconds < 10:
     seconds = "0" + str(seconds)
 
-# 0 5... дней
-# 1 день
-# 2 3 4 дня
 
 day_in_correct_form = None
-if days in range(2,5):
-    day_in_correct_form = 'дня'
-elif days == 1:
+if days in {1, 21, 31, 41, 51, 61, 71, 81, 91}:
     day_in_correct_form = 'день'
+elif days % 10 in {2, 3, 4} and not 11 <= days % 100 <= 14:
+    day_in_correct_form = 'дня'
 else:
     day_in_correct_form = 'дней'
 
